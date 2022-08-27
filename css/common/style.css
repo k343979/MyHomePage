@@ -1,0 +1,277 @@
+@charset "UTF-8";
+
+/* Initialize */
+
+/* フォント */
+.ff-inter {
+    font-family: 'Inter', sans-serif;
+}
+.ff-nsj {
+    font-family: 'Noto Sans JP', serif;
+}
+.ff-jose {
+    font-family: 'Josefin Sans', sans-serif;
+}
+.ff-mpr {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+/* aタグ */
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    color: rgb(77, 65, 65);
+    vertical-align: baseline;
+    background: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: rgb(77, 65, 65);
+    text-decoration: none;
+}
+
+
+/* === 各ページ共通パーツ === */
+
+/* === loading === */
+#loader-bg {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: #fff;
+    position: fixed;
+}
+.loader-zindex {
+    z-index: 10000;
+}
+/* Loadingアニメーション */
+#loader-bg video {
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+}
+
+/* === header === */
+#header,
+#header .logo {
+    max-height: 100px;
+}
+.header-zindex {
+    z-index: 100;
+}
+#hamburgerContent.active {
+    display: block;
+}
+/* ヘッダーナビゲーションホバー */
+#header .nav-link:hover {
+    color: #ff0211;
+    opacity: .8;
+}
+
+/* ナビのアニメーション */
+.stretch-underline-anime {
+    position: relative;
+}
+.stretch-underline-anime::after {
+    content: '';
+    /* 絶対配置で線の位置を決める */
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    /* 線の形状 */
+    width: 80%;
+    height: 2px;
+    background: #ff0211;
+    /* アニメーションの指定 */
+    transition: all .3s;
+    /* X方向0、Y方向1 */
+    transform: scale(0, 1);
+    /* 上部中央基点 */
+    transform-origin: center top;
+}
+.active-page.stretch-underline-anime::after {
+    transform: scale(1, 1);
+}
+.stretch-underline-anime:hover::after {
+    /* X方向にスケール拡大 */
+    transform: scale(1, 1);
+}
+
+/* ナビゲーション文字 */
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(77, 65, 65);
+    font-size: 1.1rem;
+}
+
+/* ソーシャルアイコンの固定バー */
+.fixed-under-bar {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+/* ソーシャルアイコンのホバー */
+.social-area a:hover {
+    opacity: .8;
+}
+.fb-color {
+    color: #1877f2;
+}
+
+/* === ホーム === */
+
+/* 液体シェイプのアニメーション */
+.fluid-anime {
+    /* アニメーションの設定 */
+    animation: fluidrotate 30s ease 0s infinite;
+}
+@keyframes fluidrotate {
+    0%, 100% {
+        border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+    }
+    14% {
+        border-radius: 40% 60% 54% 46%/49% 60% 40% 51%;
+    }
+    28% {
+        border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+    }
+    42% {
+        border-radius: 61% 39% 55% 45%/61% 38% 62% 39%;
+    }
+    56% {
+        border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+    }
+    70% {
+        border-radius: 50% 50% 34% 66%/56% 68% 32% 44%;
+    }
+    84% {
+        border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+    }
+}
+.fluid-bg-red {
+    background: rgba(255, 2, 17, .5);
+}
+.fluid-bg-blue {
+    background: rgba(0, 102, 255, .5);
+}
+.fluid-bg-yellow {
+    background: rgba(255, 241, 0, .5);
+}
+.fluid-bg-green {
+    background: rgba(0, 255, 51, 0.5);
+}
+.fluid-bg-purple {
+    background: rgba(144, 0, 255, .5);
+}
+.fluid-size-10 {
+    width: 10vh;
+    height: 10vh;
+}
+.fluid-size-20 {
+    width: 20vh;
+    height: 20vh;
+}
+.fluid-size-25 {
+    width: 25vh;
+    height: 25vh;
+}
+.fluid-size-30 {
+    width: 30vh;
+    height: 30vh;
+}
+.fluid-position-1 {
+    top: 7%;
+    left: 35%;
+    position: absolute;
+    z-index: 1;
+}
+.fluid-position-2 {
+    top: 10%;
+    left: 10%;
+    position: absolute;
+    z-index: 1;
+}
+.fluid-position-3 {
+    top: 15%;
+    right: 8%;
+    position: absolute;
+    z-index: 1;
+}
+.fluid-position-4 {
+    bottom: 20%;
+    left: 25%;
+    position: absolute;
+    z-index: 1;
+}
+.fluid-position-5 {
+    bottom: 10%;
+    right: 30%;
+    position: absolute;
+    z-index: 1;
+}
+@media screen and (max-width: 768px) {
+    .fluid-size-10 {
+        width: 5vh;
+        height: 5vh;
+    }
+    .fluid-size-20 {
+        width: 10vh;
+        height: 10vh;
+    }
+    .fluid-size-25 {
+        width: 12vh;
+        height: 12vh;
+    }
+    .fluid-size-30 {
+        width: 15vh;
+        height: 15vh;
+    }
+    .fluid-position-1 {
+        top: 5%;
+        left: 35%;
+        position: absolute;
+        z-index: 1;
+    }
+    .fluid-position-2 {
+        top: 15%;
+        left: 5%;
+        position: absolute;
+        z-index: 1;
+    }
+    .fluid-position-3 {
+        top: 25%;
+        right: 8%;
+        position: absolute;
+        z-index: 1;
+    }
+    .fluid-position-4 {
+        bottom: 35%;
+        left: 20%;
+        position: absolute;
+        z-index: 1;
+    }
+    .fluid-position-5 {
+        bottom: 15%;
+        right: 20%;
+        position: absolute;
+        z-index: 1;
+    }
+}
+
+/* main */
+#home .main-content {
+    top: 10%;
+    z-index: 10;
+}
+#home .social-area {
+    bottom: 10%;
+}
+
+#footer {
+    bottom: 0;
+}

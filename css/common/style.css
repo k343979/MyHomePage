@@ -31,6 +31,23 @@ a:hover {
     text-decoration: none;
 }
 
+/* 入力必須項目のlabelタグに付与する入力必須マーク */
+label.required::after {
+    content: " *";
+    color: #ff0211;
+    vertical-align: middle;
+}
+
+/* .btn-infoボタンの文字色 */
+.btn.btn-info {
+    color: #fff;
+}
+
+/* エラーメッセージの文字色 */
+.error-msg-color {
+    color: #ff0211;
+}
+
 
 /* === 各ページ共通パーツ === */
 
@@ -111,9 +128,9 @@ a:hover {
 
 /* ソーシャルアイコンの固定バー */
 .fixed-under-bar {
-    width: 100%;
     position: fixed;
     bottom: 0;
+    right: 0;
 }
 /* ソーシャルアイコンのホバー */
 .social-area a:hover {

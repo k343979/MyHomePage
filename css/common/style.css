@@ -90,6 +90,14 @@ label.required::after {
     color: #ff0211;
     opacity: .8;
 }
+/* ハンバーガーメニュー */
+#hamburgerContent.active ul {
+    width: 100%;
+    background: rgb(180, 180, 180);
+}
+#hamburgerContent.active li {
+    text-align: center;
+}
 
 /* ナビのアニメーション */
 .stretch-underline-anime {
@@ -283,7 +291,7 @@ label.required::after {
 /* main */
 #home .main-content {
     top: 10%;
-    z-index: 10;
+    /* z-index: 10; */
 }
 #home .social-area {
     bottom: 10%;

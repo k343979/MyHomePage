@@ -33,7 +33,7 @@ $(function () {
         }
     });
 
-    // 送信ボタン押下時のバリデーション
+    // 送信ボタン押下時の処理
     $('#contactSubmit').on('click', function () {
         // valueである文字列"lang=*"から"lang="を取り除きlangに格納
         str = $(this).val();
@@ -43,6 +43,13 @@ $(function () {
             lang = str.replace('lang=', '');
         }
 
+        // バリデーション件数
+        var errorCount = 0;
+        // id格納用配列
+        var ids = [];
+        // ユーザーの入力値格納用配列
+        var values = [];
+
         // id属性に"contact-"のプレフィクスが付く要素を取得
         // 全ての入力項目が取得対象になる
         $('[id^=contact-]').each(function () {
@@ -50,17 +57,62 @@ $(function () {
             if ($(this).attr('required') && $(this).val() == '') {
                 createAlert(this, lang, false);
                 $(this).css('border', '1px solid #ff0211');
+                errorCount++;
+                return;
             }
             // required属性がついているセレクトボックスのバリデーション
             if ($(this).attr('required') && $(this).val() == '0') {
                 createAlert(this, lang, false);
                 $(this).css('border', '1px solid #ff0211');
+                errorCount++;
+                return;
             }
             // 入力可能な文字数のバリデーション
             if ($(this).val() != '' && $(this).val().length > maxCount) {
                 createAlert(this, lang, true);
                 $(this).css('border', '1px solid #ff0211');
+                errorCount++;
+                return;
             }
+
+            // id属性から"contact-"を取り除き、"-"を"_"に置換
+            var id = $(this).attr("id");
+            id = id.replace('contact-', '');
+            id = id.replace('-', '_');
+            // 配列に格納
+            ids.push(id);
+            values.push($(this).val());
+        });
+
+        // バリデーション件数が1件以上存在する場合
+        if (errorCount != 0) {
+            return;
+        }
+
+        // ajaxの通信データ格納用オブジェクト
+        var obj = {};
+        // idの数(入力項目数)だけループし、{id: value}の形式に格納
+        for (let i = 0; i < ids.length; i++) {
+            obj[ids[i]] = values[i];
+        }
+        console.log(obj);
+        return;
+        // info配列にオブジェクトを格納
+        info = [obj];
+        // info配列をJSON文字列に変換
+        data = JSON.stringify(info);
+
+        // ajax通信
+        $.ajax({
+            type: 'POST',
+            url: '../../contact/contact.php',
+            data: {
+                data: data,
+            }
+        }).done(function (data) {
+            return;
+        }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
+            return;
         });
     });
 

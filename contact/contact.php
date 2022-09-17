@@ -4,7 +4,6 @@
 //　エスケープ処理やデータチェックを行う関数のファイルの読み込み
 require './libs/function.php';
 
-// replace this with email address as you like
 $to = 'dev.yusuke040989@gmail.com';
 
 function url()
@@ -121,7 +120,7 @@ if (isset($_POST['data'])) {
     <header id="header" class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                <a class="navbar-brand d-flex align-items-center" href="/homepage-ja/index.html">
+                <a class="navbar-brand d-flex align-items-center" href="../homepage-ja/index.html">
                     <img src="/img/logo.png" alt="" class="logo img-fluid" />
                     <p class="d-inline mb-0 fs-3 fw-lighter ff-jose">yusuke</p>
                 </a>

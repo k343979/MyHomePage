@@ -95,8 +95,7 @@ $(function () {
         for (let i = 0; i < ids.length; i++) {
             obj[ids[i]] = values[i];
         }
-        console.log(obj);
-        return;
+
         // info配列にオブジェクトを格納
         info = [obj];
         // info配列をJSON文字列に変換
